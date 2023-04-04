@@ -69,10 +69,17 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+  .topnav { 
+    margin: 7.5%;
+  }
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
+  }
+  .header-logo img {
+    width: 103px;
+    height: 19px;
   }
 }
 
@@ -194,6 +201,7 @@ label {
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
+  margin-top: 6px;
 }
 input {
   padding: 8px;
@@ -295,6 +303,12 @@ input[data-error]::after {
   transform: rotate(-55deg);
   left: 21%;
   top: 19%;
+}
+#termOfUse {
+  border: 0px none;
+}
+#radio-box {
+  border: 0px none;
 }
 .close {
   position: absolute;
@@ -498,7 +512,7 @@ footer {
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 0;
     min-width: 300px;
   }
   .hero-content::after {
@@ -508,12 +522,14 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 3.5rem;
+    font-size: 40px;
     white-space: normal;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
   }
   .hero-img img {
     border-radius: 10px;
