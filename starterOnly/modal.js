@@ -60,12 +60,14 @@ function thankMessage() {
   thanks.style.display = "flex";
 }
 
-//check if form valide
+/**
+ * check if each input are correct
+ * @returns bool
+ */
 function validateForm() {
   //get DOM element
   const formInputs = document.querySelectorAll(".formData input");
   const InputTermOfUse = document.getElementById("checkbox1");
-  //console.log(formInputs);
 
   let isValid = true;
 
@@ -74,34 +76,32 @@ function validateForm() {
     switch (input.type) {
       //first name and last name
       case 'text':
-        isValid = checkFirstAndLast(input);
-        //console.log(isValid, "here");
-        break;
+        isValid = checkFirstAndLast(input, isValid);
+      break;
       //email
       case 'email':
-        isValid = checkEmail(input);
-        break;
+        isValid = checkEmail(input, isValid);
+      break;
       //date of birth
       case 'date':
-        isValid = checkBirthDate(input);
-        break;
+        isValid = checkBirthDate(input, isValid);
+      break;
       //how many GameON event did you participeted
       case 'number':
-        isValid = checkNumberEventparticipated(input);
-        break;
+        isValid = checkNumberEventparticipated(input, isValid);
+      break;
       // term of use agreament checked
       case 'checkbox':
         if (input === InputTermOfUse) {
-          isValid = checkTermOfUse(input); 
+          isValid = checkTermOfUse(input, isValid);
         }
-        break;
+      break;
     }
   });
 
   //now check radio type input
-  //isValid = checkRadio();
+  isValid = checkRadio(isValid);
 
-  console.log(isValid);
   return isValid;
 }
 
@@ -109,19 +109,33 @@ function validateForm() {
  * check if first name and last name is ok
  * and visually indicate if incorrect
  * @param {string} input 
+ * @param {bool} isValid 
  * @returns bool
  */
-function checkFirstAndLast(input) {
+function checkFirstAndLast(input, isValid) {
   const textRegex = /^[a-zA-Z]{2}\s?\S+/;
-  let isValid = true;
+  let firstNameError = document.getElementById("firstName-error");
+  let lastNameError = document.getElementById("lastName-error");
   if (input.value.trim().length < 2 && !textRegex.test(input.value)) {
     isValid = false;
     input.style.borderColor = "red";
     input.style.borderWidth = "3.5px";
+    if (input.id == "first") {
+      firstNameError.style.display = "inline-block";
+    }
+    else if (input.id == "last") {
+      lastNameError.style.display = "inline-block";
+    }
   }
   else {
     input.style.borderColor = "#ccc";
     input.style.borderWidth = "0.8px";
+    if (input.id == "first") {
+      firstNameError.style.display = "none";
+    }
+    else if (input.id == "last") {
+      lastNameError.style.display = "none";
+    }
   }
   return isValid;
 }
@@ -130,19 +144,22 @@ function checkFirstAndLast(input) {
  * check if email is ok
  * and visually indicate if incorrect
  * @param {mail} input 
+ * @param {bool} isValid 
  * @returns bool
  */
-function checkEmail(input) {
+function checkEmail(input, isValid) {
   const emailRegex = /^[a-zA-Z][\w.-]*@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-  let isValid = true;
+  let emailError = document.getElementById("email-error");
   if (!emailRegex.test(input.value)) {
     isValid = false;
     input.style.borderColor = "red";
     input.style.borderWidth = "3.5px";
+    emailError.style.display = "inline-block";
   }
   else {
     input.style.borderColor = "#ccc";
     input.style.borderWidth = "0.8px";
+    emailError.style.display = "none";
   }
   return isValid;
 }
@@ -151,18 +168,21 @@ function checkEmail(input) {
  * check if date of birth is ok
  * and visually indicate if incorrect
  * @param {date} input 
+ * @param {bool} isValid 
  * @returns bool
  */
-function checkBirthDate(input) {
-  let isValid = true;
+function checkBirthDate(input, isValid) {
+  let dateOfBirthError = document.getElementById("dateOfBirth-error");
   if (input.value === '') {
     isValid = false;
     input.style.borderColor = "red";
     input.style.borderWidth = "3.5px";
+    dateOfBirthError.style.display = "inline-block";
   }
   else {
     input.style.borderColor = "#ccc";
     input.style.borderWidth = "0.8px";
+    dateOfBirthError.style.display = "none";
   }
   return isValid;
 }
@@ -171,18 +191,21 @@ function checkBirthDate(input) {
  * check if number of event participated is ok
  * and visually indicate if incorrect
  * @param {int} input 
+ * @param {bool} isValid 
  * @returns bool
  */
-function checkNumberEventparticipated(input) {
-  let isValid = true;
+function checkNumberEventparticipated(input, isValid) {
+  let numberEventError = document.getElementById("numberOfEvent-error");
   if (input.value === '' || isNaN(input.value)) {
     isValid = false;
     input.style.borderColor = "red";
     input.style.borderWidth = "3.5px";
+    numberEventError.style.display = "inline-block";
   }
   else {
     input.style.borderColor = "#ccc";
     input.style.borderWidth = "0.8px";
+    numberEventError.style.display = "none";
   }
   return isValid;
 }
@@ -191,40 +214,53 @@ function checkNumberEventparticipated(input) {
  * check if term of use is checked
  * and visually indicate if incorrect
  * @param {*} input 
+ * @param {bool} isValid 
  * @returns bool
  */
-function checkTermOfUse(input) {
-  let isValid = true;
+function checkTermOfUse(input, isValid) {
   let termOfUse = document.getElementById("termOfUse");
+  let termOfUseError = document.getElementById("termOfUse-error");
   if (!input.checked) {
     isValid = false;
     termOfUse.style.borderColor = "red";
     termOfUse.style.borderWidth = "3.5px";
     termOfUse.style.borderStyle = "solid";
+    termOfUseError.style.display = "inline-block";
   }
   else {
     termOfUse.style.borderStyle = "none";
+    termOfUseError.style.display = "none";
   }
   return isValid;
 }
 
-function checkRadio() {
+/**
+ * check if at least one city is checked
+ * and visually indicate if incorrect
+ * @param {bool} isValid 
+ * @returns bool
+ */
+function checkRadio(isValid) {
   let radioBox = document.getElementById("radio-box");
-  const listRadio = document.querySelectorAll("checkbox-input");
-  let isValid = true;
+  let radioBoxError = document.getElementById("radioBox-error");
+  const listRadio = radioBox.querySelectorAll("input");
+  let cpt = 0;
+  //count how many radio type input isn't checked
   listRadio.forEach((input) => {
-    if (input.checked) {
-      radioBox.style.borderStyle = "none";
-      console.log('here1');
-      return isValid;
-    }
-    else {
-      isValid = false;
-      console.log('here2');
-      radioBox.style.borderColor = "red";
-      radioBox.style.borderStyle = "solid";
-      radioBox.style.style.borderWidth = "3.5px";
+    if (!input.checked) {
+      cpt++;
     }
   });
+  if (cpt == listRadio.length) {
+    isValid = false;
+    radioBox.style.borderColor = "red";
+    radioBox.style.borderWidth = "3.5px";
+    radioBox.style.borderStyle = "solid";
+    radioBoxError.style.display = "inline-block";
+  }
+  else {
+    radioBox.style.borderStyle = "none";
+    radioBoxError.style.display = "none";
+  }
   return isValid;
 }
