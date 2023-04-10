@@ -33,12 +33,16 @@ img {
 .topnav {
   overflow: hidden;
   margin: 3.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10%;
 }
 .header-logo {
     float: left;
 }
 .main-navbar {
-    float: right;
+    width: 100%;
 }
 .topnav a {
   float: left;
@@ -69,10 +73,26 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+  .topnav { 
+    display: block;
+    margin-top: 33px;
+  }
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
+  }
+  .header-logo img {
+    width: 150px;
+    height: 25px;
+  }
+  .main-navbar {
+    float: right;
+    width: auto;
+  }
+  .header-logo {
+    padding-top: 20px;
+    margin-left: 3%;
   }
 }
 
@@ -97,7 +117,13 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+  }
+  .header-logo img {
+    width: 103px;
+    height: 19px;
+  }
+  .header-logo {
+    margin-left: 2%;
   }
 } 
 
@@ -194,6 +220,7 @@ label {
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
+  margin-top: 6px;
 }
 input {
   padding: 8px;
@@ -296,6 +323,12 @@ input[data-error]::after {
   left: 21%;
   top: 19%;
 }
+#termOfUse {
+  border: 0px none;
+}
+#radio-box {
+  border: 0px none;
+}
 .close {
   position: absolute;
   right: 15px;
@@ -338,6 +371,12 @@ input[data-error]::after {
   height: 650px;
   align-items: center;
   text-align: center;
+}
+.error-message {
+  display: none;
+  color: red;
+  font-size: 12px;
+  padding: 0.5px;
 }
 .validMessage h2 {
   font-style: normal;
@@ -417,7 +456,7 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  min-height: 55vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -494,11 +533,12 @@ footer {
   .hero-section {
     display: block;
     box-shadow: unset;
+    min-height: 0;
   }
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 0;
     min-width: 300px;
   }
   .hero-content::after {
@@ -508,12 +548,15 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 3.5rem;
+    font-size: 40px;
     white-space: normal;
+    text-align: center;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
   }
   .hero-img img {
     border-radius: 10px;
