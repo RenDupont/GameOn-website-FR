@@ -33,12 +33,16 @@ img {
 .topnav {
   overflow: hidden;
   margin: 3.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10%;
 }
 .header-logo {
     float: left;
 }
 .main-navbar {
-    float: right;
+    width: 100%;
 }
 .topnav a {
   float: left;
@@ -70,7 +74,8 @@ img {
 
 @media screen and (max-width: 768px) {
   .topnav { 
-    margin: 7.5%;
+    display: block;
+    margin-top: 33px;
   }
   .topnav a {display: none;}
   .topnav a.icon {
@@ -80,6 +85,14 @@ img {
   .header-logo img {
     width: 150px;
     height: 25px;
+  }
+  .main-navbar {
+    float: right;
+    width: auto;
+  }
+  .header-logo {
+    padding-top: 20px;
+    margin-left: 3%;
   }
 }
 
@@ -95,9 +108,6 @@ img {
     display: block;
     text-align: left;
   }
-  .header-logo {
-    padding-top: 20px;
-  }
 }
 
 
@@ -111,6 +121,9 @@ img {
   .header-logo img {
     width: 103px;
     height: 19px;
+  }
+  .header-logo {
+    margin-left: 2%;
   }
 } 
 
@@ -443,7 +456,7 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  min-height: 55vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -520,6 +533,7 @@ footer {
   .hero-section {
     display: block;
     box-shadow: unset;
+    min-height: 0;
   }
   .hero-content {
     background: #fff;
@@ -536,6 +550,7 @@ footer {
   .hero-headline {
     font-size: 40px;
     white-space: normal;
+    text-align: center;
   }
   .hero-text {
     width: unset;

@@ -11,7 +11,6 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalClose = document.querySelector(".close");
-//const formModal = document.querySelector(".formModal");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -143,7 +142,7 @@ function checkFirstAndLast(input, isValid) {
 /**
  * check if email is ok
  * and visually indicate if incorrect
- * @param {mail} input 
+ * @param {string} input 
  * @param {bool} isValid 
  * @returns bool
  */
@@ -167,7 +166,7 @@ function checkEmail(input, isValid) {
 /**
  * check if date of birth is ok
  * and visually indicate if incorrect
- * @param {date} input 
+ * @param {string} input 
  * @param {bool} isValid 
  * @returns bool
  */
@@ -213,7 +212,7 @@ function checkNumberEventparticipated(input, isValid) {
 /**
  * check if term of use is checked
  * and visually indicate if incorrect
- * @param {*} input 
+ * @param {object} input 
  * @param {bool} isValid 
  * @returns bool
  */
