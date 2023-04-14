@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Reservation</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="modal.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link
-      href="https://fonts.googleapis.com/css?family=DM+Sans"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet">
   </head>
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="Logo.png">
     </div>
     <div class="main-navbar">
       
@@ -28,7 +25,6 @@
       </a>
     </div>
     </div>
-  </div>
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -45,7 +41,7 @@
           </button>
         </div>
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img" />
+          <img src="./bg_img.jpg" alt="img">
         </div>
         <button class="btn-signup modal-btn">
           je m'inscris
@@ -61,29 +57,28 @@
               class="formModal"
               name="reserve"
               method="get"
-              onsubmit="submitModal(event);"
             >
               <div
                 class="formData">
-                <label for="firstName">Prénom</label><br>
+                <label for="first">Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
-                />
+                >
                 <p class="error-message" id="firstName-error">Veuillez entrer un prenom valide.</p>
                 <br>
               </div>
               <div
                 class="formData">
-                <label for="lastName">Nom</label><br>
+                <label for="last">Nom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
-                />
+                >
                 <p class="error-message" id="lastName-error">Veuillez entrer un nom de famille valide.</p>
                 <br>
               </div>
@@ -95,25 +90,25 @@
                   type="email"
                   id="email"
                   name="email"
-                />
+                >
                 <p class="error-message" id="email-error">Veuillez entrer une addresse mail valide.</p>
                 <br>
               </div>
               <div
                 class="formData">
-                <label for="dateOfBirth">Date de naissance</label><br>
+                <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
                   type="date"
                   id="birthdate"
                   name="birthdate"
-                />
+                >
                 <p class="error-message" id="dateOfBirth-error">Veuillez entrer votre date de naissance.</p>
                 <br>
               </div>
               <div
                 class="formData">
-                <label for="numberOfEvent">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
                 <p class="error-message" id="numberOfEvent-error">Veuillez entrer un nombre.</p>
               </div>
@@ -127,7 +122,7 @@
                     id="location1"
                     name="location"
                     value="New York"
-                  />
+                  >
                   <label class="checkbox-label" for="location1">
                     <span class="checkbox-icon"></span>
                     New York</label
@@ -138,7 +133,7 @@
                     id="location2"
                     name="location"
                     value="San Francisco"
-                  />
+                  >
                   <label class="checkbox-label" for="location2">
                     <span class="checkbox-icon"></span>
                     San Francisco</label
@@ -149,7 +144,7 @@
                     id="location3"
                     name="location"
                     value="Seattle"
-                  />
+                  >
                   <label class="checkbox-label" for="location3">
                     <span class="checkbox-icon"></span>
                     Seattle</label
@@ -160,7 +155,7 @@
                     id="location4"
                     name="location"
                     value="Chicago"
-                  />
+                  >
                   <label class="checkbox-label" for="location4">
                     <span class="checkbox-icon"></span>
                     Chicago</label
@@ -171,7 +166,7 @@
                     id="location5"
                     name="location"
                     value="Boston"
-                  />
+                  >
                   <label class="checkbox-label" for="location5">
                     <span class="checkbox-icon"></span>
                     Boston</label
@@ -182,7 +177,7 @@
                     id="location6"
                     name="location"
                     value="Portland"
-                  />
+                  >
                   <label class="checkbox-label" for="location6">
                     <span class="checkbox-icon"></span>
                     Portland</label
@@ -198,14 +193,14 @@
                   type="checkbox"
                   id="checkbox1"
                   checked
-                />
-                <label class="checkbox2-label" id="termOfUse" for="checkbox1" required>
+                >
+                <label class="checkbox2-label" id="termOfUse" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <p class="error-message" id="termOfUse-error">Veuillez lire et accepté les conditions d'utilisation.</p>
                 <br>
-                <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                <input class="checkbox-input" type="checkbox" id="checkbox2">
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
                   Je souhaite être prévenu des prochains évènements.
@@ -213,11 +208,10 @@
                 <br>
               </div>
               <input
-                class="btn-submit"
+                class="btn-submit button"
                 type="submit"
-                class="button"
                 value="C'est parti"
-              />
+              >
             </form>
           </div>
         </div>

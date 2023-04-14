@@ -11,6 +11,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalClose = document.querySelector(".close");
+const modalForm = document.querySelector(".formModal");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -27,6 +28,9 @@ modalClose.addEventListener("click", closeModal);
 function closeModal() {
   modalbg.style.display = "none";
 }
+
+//submit modal event
+modalForm.addEventListener("submit", submitModal);
 
 //submit modal form
 function submitModal(event) {
@@ -147,7 +151,7 @@ function checkFirstAndLast(input, isValid) {
  * @returns bool
  */
 function checkEmail(input, isValid) {
-  const emailRegex = /^[a-zA-Z][\w.-]*@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+  const emailRegex = /^[a-zA-Z][\w.-]*@[a-zA-Z0-9]+\.[a-zA-Z]{2}$/;
   let emailError = document.getElementById("email-error");
   if (!emailRegex.test(input.value)) {
     isValid = false;
