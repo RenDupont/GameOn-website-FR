@@ -75,7 +75,9 @@ img {
 @media screen and (max-width: 768px) {
   .topnav { 
     display: block;
-    margin-top: 33px;
+    margin-top: 35px;
+    margin-left: 4%;
+    margin-right: 4%;
   }
   .topnav a {display: none;}
   .topnav a.icon {
@@ -91,7 +93,7 @@ img {
     width: auto;
   }
   .header-logo {
-    padding-top: 20px;
+    padding-top: 15px;
     margin-left: 3%;
   }
 }
@@ -110,8 +112,6 @@ img {
   }
 }
 
-
-
  @media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
@@ -119,12 +119,17 @@ img {
     display: block;
   }
   .header-logo img {
-    width: 103px;
-    height: 19px;
+    width: 132px;
+    height: 25px;
   }
   .header-logo {
     margin-left: 2%;
   }
+  /*.main-navbar {
+    position: fixed;
+    z-index: 2;
+    right: 20px;
+  }*/
 } 
 
 main {
@@ -195,12 +200,6 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
-@media screen and (max-width: 768px) {
-  .bground {
-    background: none;
-  }
-}
-
 .content {
   margin: 5% auto;
   width: 100%;
@@ -208,7 +207,7 @@ main {
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   overflow: hidden;
   position: relative;
   color: #fff;
@@ -217,7 +216,7 @@ main {
 
 .modal-body {
   padding: 15px 8%;
-  margin: 15px auto;
+  margin: 24px auto;
 }
 
 label {
@@ -232,6 +231,9 @@ input {
   padding: 8px;
   border: 0.8px solid #ccc;
   outline: none;
+}
+.errorBox {
+  border: 3.5px solid red;
 }
 .text-control {
   margin: 0;
@@ -329,12 +331,6 @@ input[data-error]::after {
   left: 21%;
   top: 19%;
 }
-#termOfUse {
-  border: 0px none;
-}
-#radio-box {
-  border: 0px none;
-}
 .close {
   position: absolute;
   right: 15px;
@@ -389,6 +385,18 @@ input[data-error]::after {
   font-weight: 400;
   font-size: 36px;
   line-height: 51px;
+}
+@media screen and (max-width: 500px) {
+  body {
+    overflow: hidden;
+  }
+  .bground {
+    background: none;
+  }
+  .content {
+    margin-top: 110px;
+    margin-bottom: 0;
+  }
 }
 /* custom select styles */
 .custom-select {

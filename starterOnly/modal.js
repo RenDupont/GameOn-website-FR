@@ -12,6 +12,10 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalClose = document.querySelector(".close");
 const modalForm = document.querySelector(".formModal");
+const iconLink = document.querySelector(".icon");
+
+//open editNav 
+iconLink.addEventListener("click", editNav);
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -121,8 +125,7 @@ function checkFirstAndLast(input, isValid) {
   let lastNameError = document.getElementById("lastName-error");
   if (input.value.trim().length < 2 && !textRegex.test(input.value)) {
     isValid = false;
-    input.style.borderColor = "red";
-    input.style.borderWidth = "3.5px";
+    input.className += " errorBox"; 
     if (input.id == "first") {
       firstNameError.style.display = "inline-block";
     }
@@ -131,8 +134,7 @@ function checkFirstAndLast(input, isValid) {
     }
   }
   else {
-    input.style.borderColor = "#ccc";
-    input.style.borderWidth = "0.8px";
+    input.className = "text-control"; 
     if (input.id == "first") {
       firstNameError.style.display = "none";
     }
@@ -151,17 +153,15 @@ function checkFirstAndLast(input, isValid) {
  * @returns bool
  */
 function checkEmail(input, isValid) {
-  const emailRegex = /^[a-zA-Z][\w.-]*@[a-zA-Z0-9]+\.[a-zA-Z]{2}$/;
+  const emailRegex = /^[a-zA-Z][\w.-]*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
   let emailError = document.getElementById("email-error");
   if (!emailRegex.test(input.value)) {
     isValid = false;
-    input.style.borderColor = "red";
-    input.style.borderWidth = "3.5px";
+    input.className += " errorBox";
     emailError.style.display = "inline-block";
   }
   else {
-    input.style.borderColor = "#ccc";
-    input.style.borderWidth = "0.8px";
+    input.className = "text-control";
     emailError.style.display = "none";
   }
   return isValid;
@@ -178,13 +178,11 @@ function checkBirthDate(input, isValid) {
   let dateOfBirthError = document.getElementById("dateOfBirth-error");
   if (input.value === '') {
     isValid = false;
-    input.style.borderColor = "red";
-    input.style.borderWidth = "3.5px";
+    input.className += " errorBox";
     dateOfBirthError.style.display = "inline-block";
   }
   else {
-    input.style.borderColor = "#ccc";
-    input.style.borderWidth = "0.8px";
+    input.className = "text-control";
     dateOfBirthError.style.display = "none";
   }
   return isValid;
@@ -201,13 +199,11 @@ function checkNumberEventparticipated(input, isValid) {
   let numberEventError = document.getElementById("numberOfEvent-error");
   if (input.value === '' || isNaN(input.value)) {
     isValid = false;
-    input.style.borderColor = "red";
-    input.style.borderWidth = "3.5px";
+    input.className += " errorBox";
     numberEventError.style.display = "inline-block";
   }
   else {
-    input.style.borderColor = "#ccc";
-    input.style.borderWidth = "0.8px";
+    input.className = "text-control";
     numberEventError.style.display = "none";
   }
   return isValid;
@@ -225,13 +221,11 @@ function checkTermOfUse(input, isValid) {
   let termOfUseError = document.getElementById("termOfUse-error");
   if (!input.checked) {
     isValid = false;
-    termOfUse.style.borderColor = "red";
-    termOfUse.style.borderWidth = "3.5px";
-    termOfUse.style.borderStyle = "solid";
+    termOfUse.className += " errorBox";
     termOfUseError.style.display = "inline-block";
   }
   else {
-    termOfUse.style.borderStyle = "none";
+    termOfUse.className = "checkbox2-label";
     termOfUseError.style.display = "none";
   }
   return isValid;
@@ -256,13 +250,11 @@ function checkRadio(isValid) {
   });
   if (cpt == listRadio.length) {
     isValid = false;
-    radioBox.style.borderColor = "red";
-    radioBox.style.borderWidth = "3.5px";
-    radioBox.style.borderStyle = "solid";
+    radioBox.className = "errorBox";
     radioBoxError.style.display = "inline-block";
   }
   else {
-    radioBox.style.borderStyle = "none";
+    radioBox.className = "none";
     radioBoxError.style.display = "none";
   }
   return isValid;
