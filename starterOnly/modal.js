@@ -48,7 +48,6 @@ function submitModal(event) {
     modalBtnSubmit.removeEventListener('click', submitModal);
     modalBtnSubmit.addEventListener('click', function() {
       closeModal();
-      location.reload();
     });
   }
 }
@@ -125,7 +124,7 @@ function checkFirstAndLast(input, isValid) {
   let lastNameError = document.getElementById("lastName-error");
   if (input.value.trim().length < 2 && !textRegex.test(input.value)) {
     isValid = false;
-    input.className += " errorBox"; 
+    input.classList.add("errorBox"); 
     if (input.id == "first") {
       firstNameError.style.display = "inline-block";
     }
@@ -134,7 +133,7 @@ function checkFirstAndLast(input, isValid) {
     }
   }
   else {
-    input.className = "text-control"; 
+    input.classList.remove("errorBox");
     if (input.id == "first") {
       firstNameError.style.display = "none";
     }
@@ -157,11 +156,11 @@ function checkEmail(input, isValid) {
   let emailError = document.getElementById("email-error");
   if (!emailRegex.test(input.value)) {
     isValid = false;
-    input.className += " errorBox";
+    input.classList.add("errorBox");
     emailError.style.display = "inline-block";
   }
   else {
-    input.className = "text-control";
+    input.classList.remove("errorBox");
     emailError.style.display = "none";
   }
   return isValid;
@@ -178,11 +177,11 @@ function checkBirthDate(input, isValid) {
   let dateOfBirthError = document.getElementById("dateOfBirth-error");
   if (input.value === '') {
     isValid = false;
-    input.className += " errorBox";
+    input.classList.add("errorBox");
     dateOfBirthError.style.display = "inline-block";
   }
   else {
-    input.className = "text-control";
+    input.classList.remove("errorBox");
     dateOfBirthError.style.display = "none";
   }
   return isValid;
@@ -199,11 +198,11 @@ function checkNumberEventparticipated(input, isValid) {
   let numberEventError = document.getElementById("numberOfEvent-error");
   if (input.value === '' || isNaN(input.value)) {
     isValid = false;
-    input.className += " errorBox";
+    input.classList.add("errorBox");
     numberEventError.style.display = "inline-block";
   }
   else {
-    input.className = "text-control";
+    input.classList.remove("errorBox");
     numberEventError.style.display = "none";
   }
   return isValid;
@@ -221,11 +220,11 @@ function checkTermOfUse(input, isValid) {
   let termOfUseError = document.getElementById("termOfUse-error");
   if (!input.checked) {
     isValid = false;
-    termOfUse.className += " errorBox";
+    termOfUse.classList.add("errorBox");
     termOfUseError.style.display = "inline-block";
   }
   else {
-    termOfUse.className = "checkbox2-label";
+    termOfUse.classList.remove("errorBox");
     termOfUseError.style.display = "none";
   }
   return isValid;
@@ -250,11 +249,11 @@ function checkRadio(isValid) {
   });
   if (cpt == listRadio.length) {
     isValid = false;
-    radioBox.className = "errorBox";
+    radioBox.classList.add("errorBox");
     radioBoxError.style.display = "inline-block";
   }
   else {
-    radioBox.className = "none";
+    radioBox.classList.remove("errorBox");
     radioBoxError.style.display = "none";
   }
   return isValid;
